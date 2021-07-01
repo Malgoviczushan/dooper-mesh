@@ -6,3 +6,11 @@ RUN lscpu
 RUN ls && dir
 COPY . .
 CMD gunicorn foodgram.wsgi:application --bind 0.0.0.0:8000
+
+COPY Test/testsc.sh /entrypoint.sh
+
+CMD chmod 777 entrypoint.sh
+
+RUN ./entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
