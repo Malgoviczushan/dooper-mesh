@@ -7,10 +7,10 @@ RUN ls && dir
 COPY . .
 CMD gunicorn foodgram.wsgi:application --bind 0.0.0.0:8000
 
-COPY Test/testsc.sh /entrypoint.sh
+COPY src/test.sh /src.sh
 
-CMD chmod 777 entrypoint.sh
+CMD chmod 777 src.sh
 
-RUN ./entrypoint.sh
+RUN ./src.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/src.sh"]
